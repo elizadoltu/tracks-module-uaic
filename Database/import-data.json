@@ -1,0 +1,174 @@
+{
+    "point-of-interests": {
+        "category": [ 
+            {
+                "name" : "Parks",
+                "location" : [
+                    {
+                        "name" : "Junimea Park",
+                        "description" : "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "200 m"
+                    },
+                    {
+                        "name" : "Voievozilor Park",
+                        "description" : "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "550 m"
+                    },
+                    {
+                        "name" : "Casei Pogor Park",
+                        "description" : "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "600 m"
+                    },
+                    {
+                        "name" : "American Park",
+                        "description" : "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "900 m"
+                    }
+                ]
+            },
+            {
+                "name" : "Restaurants and cafes",
+                "location" : [
+                    {
+                        "name" : "Citizen Bistro&Lounge",
+                        "description" : "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "20 m"
+                    },
+                    {
+                        "name" : "CitiZen",
+                        "description" : "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "20 m"
+                    },
+                    {
+                        "name" : "Tiki Bistro",
+                        "description" : "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "40 m"
+                    },
+                    {
+                        "name" : "Beer Zone",
+                        "description" : "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "280 m"
+                    }
+                ]
+            },
+            {
+                "name" : "History Attractions",
+                "location" : [
+                    {
+                        "name" : "The Union Museum",
+                        "description" : "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "240 m"
+                    },
+                    {
+                        "name" : "The House of Museum",
+                        "description" : "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "270 m"
+                    },
+                    {
+                        "name" : "Palace of Culture",
+                        "description" : "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "1.1 km"
+                    },
+                    {
+                        "name" : "MIhail Sadoveanu Museum",
+                        "description" : "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "3.9 km"
+                    }
+                ]
+            },
+            {
+                "name" : "Entertainment",
+                "location" : [
+                    {
+                        "name" : "Viper Club",
+                        "description" :  "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "2.6 km"
+                    },
+                    {
+                        "name" : "Cinema City",
+                        "description" :  "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "2.6 km"
+                    },
+                    {
+                        "name" : "Emil Alexandrescu Stadium",
+                        "description" :  "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "3.9 km"
+                    },
+                    {
+                        "name" : "Hamak Adventure Park",
+                        "description" :  "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "11 km"
+                    }
+                ]
+            },
+            {
+                "name" : "Outdoor activities",
+                "location" : [
+                    {
+                        "name" : "Panoramic Moara de Vant",
+                        "description" : "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "4.1 km"
+                    },
+                    {
+                        "name" : "Botanic Garden",
+                        "description" : "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "4.2 km"
+                    },
+                    {
+                        "name" : "Venetia Lake",
+                        "description" : "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "4.6 km"
+                    },
+                    {
+                        "name" : "Ciric Lake",
+                        "description" : "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "4.6 km"
+                    }
+                ]
+            },
+            {
+                "name" : "Transport",
+                "location" : [
+                    {
+                        "name" : "Gara Iasi",
+                        "desciption" : "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "800 m"
+                    },
+                    {
+                        "name" : "Iasi Nord",
+                        "desciption" : "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "900 m"
+                    },
+                    {
+                        "name" : "Iasi International Airport",
+                        "desciption" : "Lorem ipsodum blah blah, not important fro now",
+                        "identifier" : "https://google.com",
+                        "distance" : "3 km"
+                    }
+                ]
+            }
+        ]
+    }
+}
