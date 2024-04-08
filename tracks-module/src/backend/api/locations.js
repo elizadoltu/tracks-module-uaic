@@ -1,72 +1,68 @@
 import express from 'express';
-import oracledb from 'oracledb';
+import mysql from 'mysql';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-async function fetchData() {
-    let connection;
-    try {
-        connection = await oracledb.getConnection({
-            user: "sys",
-            password: "BUCURESTI1234",
-            connectString: "localhost:1522/ORCL",
-            privilege: oracledb.SYSDBA
-        });
-        
-        const locationsResult = await connection.execute(`SELECT * FROM locations`);
-        const locationsDataPromises = locationsResult.rows.map(async row => {
-            let description;
-            if (row[2] !== undefined && row[2] instanceof oracledb.Lob) {
-                description = await row[2].getData();
-            } else {
-                description = row[2];
-            }
-            return {
-                LOCATION_ID: row[0],
-                NAME: row[1],
-                DESCRIPTION: description,
-                IDENTIFIER: row[3],
-                DISTANCE: row[4],
-                CATEGORY_ID: row[5]
-            };
-        });
+const connection = mysql.createConnection({
+    host: "localhost",
+    database: "attractions",
+    user: "root",
+    password: "sys123"
+});
 
-        // Wait for all promises to resolve
-        const locationsData = await Promise.all(locationsDataPromises);
+connection.connect(function(err) {
+    if (err) {
+        console.error("Error connecting: " + err.stack);
+        return;
+    }
 
-        const categoriesResult = await connection.execute(`SELECT * FROM point_of_interest_categories`);
-        const categoriesData = categoriesResult.rows.map(row => ({
-            CATEGORY_ID: row[0],
-            CATEGORY_NAME: row[1]
+    console.log("Connected as id " + connection.threadId);
+});
+
+// Endpoint for fetching locations
+app.get('/', (req, res) => {
+    connection.query('SELECT * FROM locations', function(error, locationResults, locationFields) {
+        if (error) {
+            console.error("Error fetching locations data: ", error);
+            res.status(500).json({ error: "Error fetching locations data" });
+            return;
+        }
+
+        const locationsData = locationResults.map(row => ({
+            LOCATION_ID: row.location_id,
+            NAME: row.name,
+            DESCRIPTION: row.description,
+            IDENTIFIER: row.identifier,
+            DISTANCE: row.distance,
+            CATEGORY_ID: row.category_id
         }));
 
         console.log("Locations data:", locationsData);
-        console.log("Categories data:", categoriesData);
 
-        return { locations: locationsData, categories: categoriesData };
-    } catch (err) {
-        console.error("Error fetching data: ", err);
-        throw err; // Ensure the error is propagated to the caller
-    } finally {
-        if (connection) {
-            try {
-                await connection.close();
-            } catch (err) {
-                console.error("Error closing connection: ", err);
-                throw err; // Ensure the error is propagated to the caller
+        // Fetch categories data
+        connection.query('SELECT * FROM point_of_interest_categories', function(error, categoryResults, categoryFields) {
+            if (error) {
+                console.error("Error fetching categories data: ", error);
+                res.status(500).json({ error: "Error fetching categories data" });
+                return;
             }
-        }
-    }
-}
 
-app.get('/', async (req, res) => {
-    try {
-        const data = await fetchData();
-        res.json(data);
-    } catch (error) {
-        res.status(500).json({ error: "Error fetching data" });
-    }
+            const categoriesData = categoryResults.map(row => ({
+                CATEGORY_ID: row.category_id,
+                CATEGORY_NAME: row.category_name // Assuming the column name is category_name
+            }));
+
+            console.log("Categories data:", categoriesData);
+
+            // Send both locations and categories data in the response
+            res.json({ locations: locationsData, categories: categoriesData });
+        });
+    });
+});
+// Default route handler for the root endpoint
+app.get('/', (req, res) => {
+    res.send('Welcome to the Attractions API');
 });
 
 app.listen(PORT, () => {
