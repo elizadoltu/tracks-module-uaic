@@ -1,14 +1,14 @@
 import express from 'express';
-import mysql from 'mysql';
+import mysql from 'mysql2';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 const connection = mysql.createConnection({
-    host: "localhost",
+    host: "192.168.100.15",
     database: "attractions",
-    user: "root",
-    password: "sys123"
+    user: "root_user",
+    password: "root"
 });
 
 connection.connect(function(err) {
