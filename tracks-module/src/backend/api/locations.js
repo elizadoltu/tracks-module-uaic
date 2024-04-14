@@ -50,12 +50,12 @@ app.get('/', (req, res) => {
 
             const categoriesData = categoryResults.map(row => ({
                 CATEGORY_ID: row.category_id,
-                CATEGORY_NAME: row.category_name // Assuming the column name is category_name
+                CATEGORY_NAME: row.category_name 
             }));
 
             console.log("Categories data:", categoriesData);
 
-            // Send both locations and categories data in the response
+           
             res.json({ locations: locationsData, categories: categoriesData });
         });
     });
